@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design-to-code"
+  short_description: "High-fidelity websites from visual references"
+  default_prompt: "Use $design-to-code to reconstruct or art-direct this website as responsive, accessible, production-ready code with rendered comparison evidence."

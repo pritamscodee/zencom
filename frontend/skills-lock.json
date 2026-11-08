@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "skills": {
+    "design-to-code": {
+      "source": "Atharvsinh-codez/skills",
+      "sourceType": "github",
+      "skillPath": "design-to-code/SKILL.md",
+      "computedHash": "6288bdc18fc23c5881dc1651f42fd84a151661bcee6a3ba2025a0b9983ae0dc1"
+    },
+    "frontend-design": {
+      "source": "anthropics/skills",
+      "sourceType": "github",
+      "skillPath": "skills/frontend-design/SKILL.md",
+      "computedHash": "106acf230014cbb43ca34e6410371321b56ca742f9ee0442e8ec05bf02eb0384"
+    },
+    "heroui-migration": {
+      "source": "heroui-inc/heroui",
+      "sourceType": "github",
+      "skillPath": "skills/heroui-migration/SKILL.md",
+      "computedHash": "ff03a6828cfa9556accc64e5e9a46d4b824de331882162b7a36743df9ce83e1a"
+    },
+    "heroui-native": {
+      "source": "heroui-inc/heroui",
+      "sourceType": "github",
+      "skillPath": "skills/heroui-native/SKILL.md",
+      "computedHash": "0c69432d03bb4ab6ce85158631c3d2b05f2efd5c2ddefecca161d7e697054704"
+    },
+    "heroui-react": {
+      "source": "heroui-inc/heroui",
+      "sourceType": "github",
+      "skillPath": "skills/heroui-react/SKILL.md",
+      "computedHash": "c3633cb324aef2a51a9828c96776897ec2273d8d092cfcfb4dfa754006c7b8df"
+    }
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "name": "zencom-backend",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@trigger.dev/build": "4.8.3",
+    "@types/bun": "latest",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/multer": "^2.3.0",
+    "@types/pg": "^8.23.1",
+    "prisma": "7.10.1",
+    "socket.io-client": "^4.8.4",
+    "trigger.dev": "4.8.3"
+  },
+  "peerDependencies": {
+    "typescript": "^7.0.2"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.1164.0",
+    "@langfuse/client": "^6.1.1",
+    "@langfuse/otel": "^6.1.1",
+    "@langfuse/tracing": "^6.1.1",
+    "@openai/agents": "^0.21.0",
+    "@opentelemetry/sdk-trace-node": "^2.12.0",
+    "@pinecone-database/pinecone": "^9.2.0",
+    "@prisma/adapter-pg": "^7.10.1",
+    "@prisma/client": "^7.10.1",
+    "@trigger.dev/sdk": "4.8.3",
+    "better-auth": "^1.7.18",
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.9",
+    "express": "^5.3.0",
+    "mammoth": "^1.13.0",
+    "multer": "^2.5.0",
+    "openai": "^7.53.0",
+    "pdf-parse": "^2.4.5",
+    "pg": "^8.23.1",
+    "razorpay": "^2.9.8",
+    "resend": "^6.37.0",
+    "socket.io": "^4.8.4",
+    "zod": "^4.6.7"
+  },
+  "scripts": {
+    "dev": "bun --watch src/index.ts",
+    "start": "bun src/index.ts",
+    "typecheck": "tsc --noEmit",
+    "eval": "bun src/evals/run.ts",
+    "db:generate": "prisma generate",
+    "db:migrate": "prisma migrate dev && prisma generate",
+    "db:deploy": "prisma migrate deploy",
+    "trigger:dev": "trigger dev",
+    "trigger:deploy": "trigger deploy",
+    "postinstall": "prisma generate"
+  }
+}

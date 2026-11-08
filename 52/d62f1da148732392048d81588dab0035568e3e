@@ -1,0 +1,57 @@
+frontend/.gitignore
+  s_c167cc7a7a9df9::t_033ee62c369124 2-3
+backend/.gitignore
+  s_c167cc7a7a9df9::t_033ee62c369124 2-3,7,9-10,12
+backend/prisma/migrations/20261107105942_init/migration.sql
+  s_3c54e06bd49b11::t_0abf458118e28f 1-407
+backend/prisma/migrations/20261107114834_brand_widget_color/migration.sql
+  s_3c54e06bd49b11::t_5c11a2e7b75492 1-2
+backend/prisma/migrations/20261108160042_billing/migration.sql
+  s_b626e9fe063b78::t_8798e897c54110 1-43
+backend/prisma/migrations/20261108200000_remove_whatsapp/migration.sql
+  s_c167cc7a7a9df9::t_7b1945134945ad 1-23
+backend/prisma/migrations/migration_lock.toml
+  s_b626e9fe063b78::t_f8017c1a466c4c 1-3
+backend/public/widget.js
+  s_bd76df6be64516::t_7c2ed5343b6669 1-4,6-8,10-11,13-16,18-96
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "52d62f1da148732392048d81588dab0035568e3e",
+  "prompts": {},
+  "sessions": {
+    "s_3c54e06bd49b11": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "cc888bbe-7baf-407e-8304-7e22b314a19c",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "pritamscodee <codewithpritam29@gmail.com>"
+    },
+    "s_b626e9fe063b78": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "3ed330db-c4ab-43ed-aaa6-af2a892e97e8",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "pritamscodee <codewithpritam29@gmail.com>"
+    },
+    "s_bd76df6be64516": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2a9eeeb6-3b24-4fac-b67a-8cadfc37f810",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "pritamscodee <codewithpritam29@gmail.com>"
+    },
+    "s_c167cc7a7a9df9": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "5cb6b0f6-2ad4-486e-86de-6d8819617505",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "pritamscodee <codewithpritam29@gmail.com>"
+    }
+  }
+}

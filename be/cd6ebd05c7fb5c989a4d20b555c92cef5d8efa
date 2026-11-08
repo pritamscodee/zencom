@@ -1,0 +1,351 @@
+CLAUDE.md
+  s_b626e9fe063b78::t_2cd7b84b0c7802 1-5
+README.md
+  s_c167cc7a7a9df9::t_1f0f5ab708747b 1-261
+backend/.env.example
+  s_c167cc7a7a9df9::t_603ac5a7dbeef2 1-75
+backend/.gitignore
+  s_b626e9fe063b78::t_771198f882ac0a 1-28
+backend/README.md
+  s_3c54e06bd49b11::t_e899fd84ce7362 1-15
+backend/bun.lock
+  s_b626e9fe063b78::t_dc7808bfc2f023 1-1361
+backend/package.json
+  s_b626e9fe063b78::t_a33f5640ed5f90 1-56
+backend/prisma/schema.prisma
+  s_c167cc7a7a9df9::t_74beb006ff3dca 1-383
+backend/src/index.ts
+  s_b626e9fe063b78::t_a511e50b467bd8 1-65
+backend/src/lib/auth.ts
+  s_b626e9fe063b78::t_9512da786a0cb6 1-80
+backend/src/lib/env.ts
+  s_c167cc7a7a9df9::t_de66889a85b069 1-78
+backend/src/lib/observability.ts
+  s_b626e9fe063b78::t_43f7592e85d637 1-60
+backend/src/lib/plans.ts
+  s_c167cc7a7a9df9::t_d90abbcc9ca91c 1-43
+backend/src/routes/conversations.ts
+  s_c167cc7a7a9df9::t_96476a6d093acc 1-165
+backend/src/routes/documents.ts
+  s_b626e9fe063b78::t_9b2a073cfa8490 1-112
+backend/src/routes/integrations.ts
+  s_c167cc7a7a9df9::t_17d9f916981dac 1-128
+backend/src/routes/public.ts
+  s_b626e9fe063b78::t_1faa139942e1f8 1-63
+backend/src/routes/webhooks.ts
+  s_c167cc7a7a9df9::t_518b7e64a02c40 1-23
+backend/src/routes/workspace.ts
+  s_c167cc7a7a9df9::t_ee8b3b598138a9 1-101
+backend/src/services/agent.ts
+  s_c167cc7a7a9df9::t_0d9f2a99252d65 1-493
+backend/src/services/conversations.ts
+  s_c167cc7a7a9df9::t_807c092e74b8cb 1-145
+backend/src/services/guardrails.ts
+  s_c167cc7a7a9df9::t_8df6c82badf068 1-237
+backend/src/services/ingestion.ts
+  s_b626e9fe063b78::t_5fd1ca0ebe34c9 1-81
+backend/src/socket/index.ts
+  s_3c54e06bd49b11::t_7f0d623c2bc2ab 1-179
+backend/trigger.config.ts
+  s_82afd12c9fdc5b::t_975a8e7c70a544 1-16
+backend/tsconfig.json
+  s_3c54e06bd49b11::t_3452990be53550 1-29
+frontend/app/app/billing/page.tsx
+  s_b626e9fe063b78::t_1ceb7b66d11ea2 1-223
+frontend/app/app/connectors/page.tsx
+  s_c167cc7a7a9df9::t_53671733fa25c4 1-174
+frontend/app/app/documents/page.tsx
+  s_3c54e06bd49b11::t_d1b3d70bf82547 1-270
+frontend/app/app/inbox/[id]/page.tsx
+  s_3c54e06bd49b11::t_db395006e87269 1-166
+frontend/app/app/inbox/layout.tsx
+  s_3c54e06bd49b11::t_97e53819fadfe5 1-149
+frontend/app/app/layout.tsx
+  s_3c54e06bd49b11::t_1dd31643acf72f 1-27
+frontend/app/app/page.tsx
+  s_3c54e06bd49b11::t_e34bcf49bfbae8 1-96
+frontend/app/app/settings/page.tsx
+  s_3c54e06bd49b11::t_83c610766b661d 1-232
+frontend/app/app/team/page.tsx
+  s_b626e9fe063b78::t_7110e8d428cbc0 1-282
+frontend/app/app/tickets/[id]/page.tsx
+  s_3c54e06bd49b11::t_fb8fc3eafed00d 1-239
+frontend/app/app/tickets/page.tsx
+  s_3c54e06bd49b11::t_b15e0d0aebb22e 1-154
+frontend/app/icon.svg
+  s_3c54e06bd49b11::t_96521401e54ac0 1
+frontend/app/layout.tsx
+  s_c167cc7a7a9df9::t_81b11ccc5c1ae9 1-25
+frontend/app/widget/[key]/page.tsx
+  s_bd76df6be64516::t_6198fa12074843 1-911
+frontend/bun.lock
+  s_3c54e06bd49b11::t_498bfe1a80e05e 1-1051
+frontend/components/app/app-shell.tsx
+  s_3c54e06bd49b11::t_f638b4ec1c3395 1-50
+frontend/components/app/channel-icon.tsx
+  s_c167cc7a7a9df9::t_0a8a8441018b62 1-9
+frontend/components/app/page-header.tsx
+  s_3c54e06bd49b11::t_7f055d99cc8bb7 1-30
+frontend/components/app/sidebar.tsx
+  s_b626e9fe063b78::t_f029a00796c41d 1-131
+frontend/components/auth/auth-shell.tsx
+  s_c167cc7a7a9df9::t_b3df1798c0f9f9 1-33
+frontend/components/brand/integration-logos.tsx
+  s_c167cc7a7a9df9::t_f40d289265442a 1-35
+frontend/components/brand/logo.tsx
+  s_3c54e06bd49b11::t_83fc7c07a2dbee 1-63
+frontend/components/inbox/composer.tsx
+  s_3c54e06bd49b11::t_7506bd3c86bd94 1-80
+frontend/components/inbox/customer-panel.tsx
+  s_3c54e06bd49b11::t_0280f5a50bf9d7 1-167
+frontend/components/inbox/message-list.tsx
+  s_b626e9fe063b78::t_d27ca156360541 1-141
+frontend/components/landing/landing.tsx
+  s_c167cc7a7a9df9::t_724cb1de3f6dfa 1-424
+frontend/components/landing/product-mock.tsx
+  s_c167cc7a7a9df9::t_b76c4689d5d7ae 1-97
+frontend/components/ui/pickers.tsx
+  s_3c54e06bd49b11::t_a356a80b031315 1-74
+frontend/lib/types.ts
+  s_c167cc7a7a9df9::t_5e71c4fef3c677 1-159
+frontend/package.json
+  s_3c54e06bd49b11::t_9b3df65f7a2bbd 1-43
+frontend/public/brand/zencom-app-icon.svg
+  s_3c54e06bd49b11::t_8d86eb416f0202 1
+frontend/public/brand/zencom-mark-ink.svg
+  s_3c54e06bd49b11::t_7ca98a688be7b2 1
+frontend/public/brand/zencom-mark-white.svg
+  s_3c54e06bd49b11::t_ba4f884117f47f 1
+frontend/public/brand/zencom-mark.svg
+  s_3c54e06bd49b11::t_793645fa77a0f1 1
+backend/prisma.config.ts
+  s_3c54e06bd49b11::t_5521d7d4a75956 1-8
+backend/src/evals/dataset.example.json
+  s_3c54e06bd49b11::t_29e1c92a529538 1-32
+backend/src/evals/run.ts
+  s_3c54e06bd49b11::t_eb8542e4a62696 1-141
+backend/src/integrations/hubspot.ts
+  s_3c54e06bd49b11::t_39f41b47665f57 1-96
+backend/src/integrations/linear.ts
+  s_3c54e06bd49b11::t_e49a5d0ff008d0 1-90
+backend/src/integrations/slack.ts
+  s_3c54e06bd49b11::t_73d48548f64535 1-96
+backend/src/integrations/store.ts
+  s_3c54e06bd49b11::t_86ecd4883188e2 1-58
+backend/src/lib/crypto.ts
+  s_3c54e06bd49b11::t_be83e4043522e1 1-50
+backend/src/lib/db.ts
+  s_3c54e06bd49b11::t_22ec7a0799b809 1-13
+backend/src/lib/email.ts
+  s_3c54e06bd49b11::t_beb8aaf826bdbd 1-46
+backend/src/lib/http.ts
+  s_3c54e06bd49b11::t_47ad19f6c26cc8 1-25
+backend/src/lib/storage.ts
+  s_3c54e06bd49b11::t_c27ccc0364f3d4 1-57
+backend/src/middleware/auth.ts
+  s_3c54e06bd49b11::t_4fbfb2ed6cb4da 1-66
+backend/src/routes/billing.ts
+  s_3c54e06bd49b11::t_9971515f671b26 1-66
+backend/src/routes/members.ts
+  s_3c54e06bd49b11::t_7236a791c64fdc 1-56
+backend/src/routes/tickets.ts
+  s_3c54e06bd49b11::t_1da35124a7a17d 1-124
+backend/src/services/billing.ts
+  s_3c54e06bd49b11::t_584141aca2a42f 1-239
+backend/src/services/evals.ts
+  s_3c54e06bd49b11::t_8eb4e8950a8f83 1-86
+backend/src/services/jobs.ts
+  s_3c54e06bd49b11::t_056a821f733cc9 1-27
+backend/src/services/rag/chunking.ts
+  s_3c54e06bd49b11::t_686966fca1d856 1-137
+backend/src/services/rag/retrieval.ts
+  s_3c54e06bd49b11::t_73600fc8cd2634 1-231
+backend/src/services/realtime.ts
+  s_3c54e06bd49b11::t_ffc2294cb731e7 1-22
+backend/src/services/tickets.ts
+  s_3c54e06bd49b11::t_8f0c644e849051 1-186
+backend/src/services/vector.ts
+  s_3c54e06bd49b11::t_7272df39b6b331 1-167
+backend/src/services/workspace.ts
+  s_3c54e06bd49b11::t_79b188a8488e60 1-17
+backend/src/trigger/tasks.ts
+  s_3c54e06bd49b11::t_4c4f3344a24434 1-20
+frontend/.agents/skills/design-to-code/SKILL.md
+  s_3c54e06bd49b11::t_eb9a052bf49732 1-336
+frontend/.agents/skills/design-to-code/agents/openai.yaml
+  s_3c54e06bd49b11::t_5d5ebd6a70b259 1-4
+frontend/.agents/skills/design-to-code/references/art-direction.md
+  s_3c54e06bd49b11::t_3e219a05eec6b9 1-197
+frontend/.agents/skills/design-to-code/references/evaluations.md
+  s_3c54e06bd49b11::t_b0d49bb8210fa0 1-201
+frontend/.agents/skills/design-to-code/references/interface-craft.md
+  s_3c54e06bd49b11::t_c56b1a36c3777c 1-295
+frontend/.agents/skills/design-to-code/references/motion.md
+  s_3c54e06bd49b11::t_143dcf2804001f 1-273
+frontend/.agents/skills/design-to-code/references/reference-forensics.md
+  s_3c54e06bd49b11::t_bd8cebdc902a5b 1-161
+frontend/.agents/skills/design-to-code/references/typography-and-fonts.md
+  s_3c54e06bd49b11::t_41a322ce866756 1-211
+frontend/.agents/skills/design-to-code/references/verification.md
+  s_3c54e06bd49b11::t_34e50f97f9aad8 1-260
+frontend/.agents/skills/frontend-design/LICENSE.txt
+  s_3c54e06bd49b11::t_02ddebd53e3471 1-177
+frontend/.agents/skills/frontend-design/SKILL.md
+  s_3c54e06bd49b11::t_0ae8b416cecce1 1-71
+frontend/.agents/skills/heroui-migration/LICENSE.txt
+  s_3c54e06bd49b11::t_33263a5a4a6e93 1-199
+frontend/.agents/skills/heroui-migration/SKILL.md
+  s_3c54e06bd49b11::t_adddd4d49ae8de 1-140
+frontend/.agents/skills/heroui-migration/scripts/get_component_migration_guides.mjs
+  s_3c54e06bd49b11::t_6cf055aab04516 1-110
+frontend/.agents/skills/heroui-migration/scripts/get_hooks_migration_guide.mjs
+  s_3c54e06bd49b11::t_5e981d5a805434 1-53
+frontend/.agents/skills/heroui-migration/scripts/get_migration_guide.mjs
+  s_3c54e06bd49b11::t_95c3a27e7ae1e8 1-60
+frontend/.agents/skills/heroui-migration/scripts/get_styling_migration_guide.mjs
+  s_3c54e06bd49b11::t_8f733ff53c02d9 1-53
+frontend/.agents/skills/heroui-migration/scripts/list_migration_guides.mjs
+  s_3c54e06bd49b11::t_a33c187c3c6d89 1-65
+frontend/.agents/skills/heroui-native/LICENSE.txt
+  s_3c54e06bd49b11::t_2e36d6335f6c59 1-199
+frontend/.agents/skills/heroui-native/SKILL.md
+  s_3c54e06bd49b11::t_e1ffcdc6920c51 1-229
+frontend/.agents/skills/heroui-native/scripts/get_component_docs.mjs
+  s_3c54e06bd49b11::t_c435924ec7094b 1-157
+frontend/.agents/skills/heroui-native/scripts/get_docs.mjs
+  s_3c54e06bd49b11::t_c1766e59d16b33 1-154
+frontend/.agents/skills/heroui-native/scripts/get_theme.mjs
+  s_3c54e06bd49b11::t_10233e02461a0b 1-222
+frontend/.agents/skills/heroui-native/scripts/list_components.mjs
+  s_3c54e06bd49b11::t_bd1280449c3bbf 1-134
+frontend/.agents/skills/heroui-react/LICENSE.txt
+  s_3c54e06bd49b11::t_8c3f02320526a9 1-199
+frontend/.agents/skills/heroui-react/SKILL.md
+  s_3c54e06bd49b11::t_1132b7426555f6 1-234
+frontend/.agents/skills/heroui-react/scripts/get_component_docs.mjs
+  s_3c54e06bd49b11::t_23d2f103aa62f0 1-157
+frontend/.agents/skills/heroui-react/scripts/get_docs.mjs
+  s_3c54e06bd49b11::t_5b75106cb361c7 1-148
+frontend/.agents/skills/heroui-react/scripts/get_source.mjs
+  s_3c54e06bd49b11::t_4089600ed6b619 1-160
+frontend/.agents/skills/heroui-react/scripts/get_styles.mjs
+  s_3c54e06bd49b11::t_c6fb64b83a96b0 1-160
+frontend/.agents/skills/heroui-react/scripts/get_theme.mjs
+  s_3c54e06bd49b11::t_e55f10a11c1a59 1-177
+frontend/.agents/skills/heroui-react/scripts/list_components.mjs
+  s_3c54e06bd49b11::t_687d287eaca5e2 1-134
+frontend/.gitignore
+  s_3c54e06bd49b11::t_310aae7856beec 1-41
+frontend/AGENTS.md
+  s_3c54e06bd49b11::t_422cd27396471a 1-9
+frontend/DESIGN.md
+  s_3c54e06bd49b11::t_f00849bdfc93bf 1-182
+frontend/README.md
+  s_3c54e06bd49b11::t_8ebf9b0371875b 1-36
+frontend/app/(auth)/login/page.tsx
+  s_3c54e06bd49b11::t_fe492602d75a9b 1-62
+frontend/app/(auth)/signup/page.tsx
+  s_3c54e06bd49b11::t_7b8c08dcba106d 1-64
+frontend/app/accept-invite/[id]/layout.tsx
+  s_3c54e06bd49b11::t_c047d78d995af0 1-5
+frontend/app/accept-invite/[id]/page.tsx
+  s_3c54e06bd49b11::t_43c03f7ef94836 1-90
+frontend/app/app/inbox/page.tsx
+  s_3c54e06bd49b11::t_500bee2f551683 1-10
+frontend/app/globals.css
+  s_3c54e06bd49b11::t_2d55d1a7a4a016 1-68
+frontend/app/onboarding/page.tsx
+  s_3c54e06bd49b11::t_565b698ceeddb5 1-103
+frontend/app/page.tsx
+  s_3c54e06bd49b11::t_4c4512e311acfc 1-5
+frontend/app/widget/[key]/layout.tsx
+  s_3c54e06bd49b11::t_58be5c407db3e8 1-5
+frontend/app/widget/[key]/preview/page.tsx
+  s_3c54e06bd49b11::t_0030b06906ab7b 1-45
+frontend/components/app/workspace-provider.tsx
+  s_3c54e06bd49b11::t_0f771cde54aefe 1-108
+frontend/components/tickets/ticket-form-modal.tsx
+  s_3c54e06bd49b11::t_c3afca952c69fc 1-85
+frontend/components/ui/field.tsx
+  s_3c54e06bd49b11::t_b6faf77b90a5ad 1-37
+frontend/components/ui/toaster.tsx
+  s_3c54e06bd49b11::t_f2f2ac96f225d7 1-7
+frontend/components/ui/toggle.tsx
+  s_3c54e06bd49b11::t_f7f12025997e0e 1-17
+frontend/eslint.config.mjs
+  s_3c54e06bd49b11::t_c2ac41c8aa17e3 1-18
+frontend/lib/api.ts
+  s_3c54e06bd49b11::t_e1c52a375b84f2 1-39
+frontend/lib/auth-client.ts
+  s_3c54e06bd49b11::t_a2d87c47bb3a7e 1-13
+frontend/lib/config.ts
+  s_3c54e06bd49b11::t_a8020a5f80fba5 1
+frontend/lib/format.ts
+  s_3c54e06bd49b11::t_439e040b04d00e 1-68
+frontend/lib/hooks.ts
+  s_3c54e06bd49b11::t_4f486a3ba5fd66 1-50
+frontend/next.config.ts
+  s_3c54e06bd49b11::t_a6a0a95ed0e4d9 1-20
+frontend/public/file.svg
+  s_3c54e06bd49b11::t_9f63ec36e0bac3 1
+frontend/public/globe.svg
+  s_3c54e06bd49b11::t_c56b204b757372 1
+frontend/public/next.svg
+  s_3c54e06bd49b11::t_17f07364eaae3c 1
+frontend/public/vercel.svg
+  s_3c54e06bd49b11::t_ad37dcc551cb68 1
+frontend/public/window.svg
+  s_3c54e06bd49b11::t_2af36292d9b04d 1
+frontend/skills-lock.json
+  s_3c54e06bd49b11::t_b7f9f3245b81ba 1-35
+frontend/tsconfig.json
+  s_3c54e06bd49b11::t_9bda762fc0fea3 1-34
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "becd6ebd05c7fb5c989a4d20b555c92cef5d8efa",
+  "prompts": {},
+  "sessions": {
+    "s_3c54e06bd49b11": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "cc888bbe-7baf-407e-8304-7e22b314a19c",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "pritamscodee <codewithpritam29@gmail.com>"
+    },
+    "s_82afd12c9fdc5b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "7333df41-f4a5-48e1-b7fd-95beecb63f55",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "pritamscodee <codewithpritam29@gmail.com>"
+    },
+    "s_b626e9fe063b78": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "3ed330db-c4ab-43ed-aaa6-af2a892e97e8",
+        "model": "unknown"
+      },
+      "human_author": "pritamscodee <codewithpritam29@gmail.com>"
+    },
+    "s_bd76df6be64516": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2a9eeeb6-3b24-4fac-b67a-8cadfc37f810",
+        "model": "unknown"
+      },
+      "human_author": "pritamscodee <codewithpritam29@gmail.com>"
+    },
+    "s_c167cc7a7a9df9": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "5cb6b0f6-2ad4-486e-86de-6d8819617505",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "pritamscodee <codewithpritam29@gmail.com>"
+    }
+  }
+}

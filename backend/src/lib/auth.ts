@@ -19,7 +19,15 @@ export const auth = betterAuth({
   trustedOrigins: [env.FRONTEND_URL],
   emailAndPassword: { enabled: true, autoSignIn: true, minPasswordLength: 8 },
   session: { expiresIn: 60 * 60 * 24 * 14, updateAge: 60 * 60 * 24 },
-  advanced: { database: { generateId: () => crypto.randomUUID() } },
+  advanced: {
+    database: { generateId: () => crypto.randomUUID() },
+    // In production the dashboard and API live on different sites (e.g. Vercel + Render),
+    // so the session cookie must be sent cross-site.
+    ...(env.BACKEND_URL.startsWith("https://") && {
+      useSecureCookies: true,
+      defaultCookieAttributes: { sameSite: "none", secure: true },
+    }),
+  },
   plugins: [
     organization({
       allowUserToCreateOrganization: true,

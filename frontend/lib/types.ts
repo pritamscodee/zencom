@@ -43,7 +43,7 @@ export type Customer = {
   phone: string | null;
   visitorId: string | null;
   crmContactId: string | null;
-  metadata: any;
+  metadata: { referrer?: string; [key: string]: unknown } | null;
   createdAt: string;
   lastSeenAt: string;
 };
@@ -77,7 +77,7 @@ export type Message = {
   content: string;
   authorId: string | null;
   author?: UserLite | null;
-  metadata: any;
+  metadata: MessageMetadata | null;
   createdAt: string;
 };
 
@@ -110,7 +110,7 @@ export type Ticket = {
   conversation: { id: string; channel: Channel; status: ConversationStatus; subject: string | null } | null;
 };
 
-export type TicketActivity = { id: string; type: string; message: string; createdAt: string; actor: UserLite | null; data: any };
+export type TicketActivity = { id: string; type: string; message: string; createdAt: string; actor: UserLite | null; data: unknown };
 export type TicketDetail = Ticket & { activities: TicketActivity[]; destinations: { slack: boolean; linear: boolean } };
 
 export type DocumentItem = {
@@ -132,7 +132,7 @@ export type Integration = {
   id: string;
   provider: "HUBSPOT" | "SLACK" | "LINEAR";
   status: string;
-  config: Record<string, any>;
+  config: Record<string, string | undefined>;
   externalAccountName: string | null;
   createdAt: string;
 };
@@ -156,4 +156,17 @@ export type BillingInfo = {
   subscription: { plan: PlanId; status: string; currentPeriodEnd: string | null; cancelAtPeriodEnd: boolean; lastPaymentAt: string | null };
   usage: { seats: number; members: number; pendingInvites: number; aiRepliesThisMonth: number; documents: number };
   plans: { id: PlanId; name: string; limits: PlanLimits; highlights: string[]; price: { amount: number; currency: string }; available: boolean }[];
+};
+
+/** Free-form metadata the backend attaches to messages (AI sources, guardrails, feedback, delivery status…). */
+export type MessageMetadata = {
+  kind?: string;
+  ticketId?: string;
+  sources?: { documentName: string; score: number }[];
+  confidence?: number;
+  feedback?: { value: number | null };
+  guardrails?: { inputAction?: string; outputAction?: string; input?: string[]; output?: string[] };
+  traceId?: string;
+  deliveryError?: string;
+  [key: string]: unknown;
 };

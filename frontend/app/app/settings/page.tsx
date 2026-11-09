@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Button, Tabs, toast } from "@heroui/react";
 import { Check, Copy, ExternalLink } from "lucide-react";
 import { PageHeader } from "@/components/app/page-header";
@@ -31,13 +31,21 @@ export default function SettingsPage() {
   const [saving, setSaving] = useState(false);
   const [copied, setCopied] = useState(false);
 
-  useEffect(() => setS(info.settings), [info.settings]);
+  // Re-sync the form when workspace settings change upstream (adjusting state during render).
+  const [prevSettings, setPrevSettings] = useState(info.settings);
+  if (info.settings !== prevSettings) {
+    setPrevSettings(info.settings);
+    setS(info.settings);
+  }
   const set = <K extends keyof WorkspaceSettings>(k: K, v: WorkspaceSettings[K]) => setS((p) => ({ ...p, [k]: v }));
 
   async function save() {
     setSaving(true);
     try {
-      const { id: _id, workspaceId: _w, publicKey: _p, ...body } = s;
+      const body: Partial<WorkspaceSettings> = { ...s };
+      delete body.id;
+      delete body.workspaceId;
+      delete body.publicKey;
       await api("/api/workspace/settings", { method: "PATCH", body });
       if (workspaceName !== info.workspace.name) await api("/api/workspace", { method: "PATCH", body: { name: workspaceName } });
       await refresh();

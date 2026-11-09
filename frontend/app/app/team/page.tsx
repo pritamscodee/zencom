@@ -26,12 +26,15 @@ export default function TeamPage() {
   const [resending, setResending] = useState<string | null>(null);
   const emailEnabled = info.features.email;
 
-  const load = useCallback(async () => {
-    const [m, a] = await Promise.all([api<{ members: MemberRow[]; invitations: Invitation[] }>("/api/members"), api<{ items: Activity[] }>("/api/activity")]);
-    setMembers(m.members);
-    setInvitations(m.invitations);
-    setActivity(a.items);
-  }, []);
+  const load = useCallback(
+    () =>
+      Promise.all([api<{ members: MemberRow[]; invitations: Invitation[] }>("/api/members"), api<{ items: Activity[] }>("/api/activity")]).then(([m, a]) => {
+        setMembers(m.members);
+        setInvitations(m.invitations);
+        setActivity(a.items);
+      }),
+    [],
+  );
   useEffect(() => {
     load();
   }, [load]);

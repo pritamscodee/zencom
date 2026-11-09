@@ -18,7 +18,7 @@ export default function WidgetPreview() {
       s.remove();
       document.getElementById("zencom-launcher")?.remove();
       document.getElementById("zencom-frame")?.remove();
-      (window as any).__zencomLoaded = false;
+      (window as Window & { __zencomLoaded?: boolean }).__zencomLoaded = false;
     };
   }, [key]);
 

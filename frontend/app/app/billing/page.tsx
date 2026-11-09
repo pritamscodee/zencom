@@ -69,7 +69,7 @@ export default function BillingPage() {
   const [busy, setBusy] = useState<PlanId | "cancel" | null>(null);
   const isOwner = info.role === "owner";
 
-  const load = useCallback(async () => setData(await api<BillingInfo>("/api/billing")), []);
+  const load = useCallback(() => api<BillingInfo>("/api/billing").then(setData), []);
   useEffect(() => {
     load().catch((e) => toast.danger("Could not load billing", { description: errorMessage(e) }));
   }, [load]);

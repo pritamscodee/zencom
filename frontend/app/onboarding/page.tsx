@@ -33,7 +33,7 @@ function Onboarding() {
       router.replace("/login?next=/onboarding");
       return;
     }
-    if (forceNew) return setChecking(false);
+    if (forceNew) return;
     authClient.organization.list().then(async (r) => {
       const first = r.data?.[0];
       if (first) {
@@ -64,7 +64,8 @@ function Onboarding() {
     router.replace("/app?welcome=1");
   }
 
-  if (checking) {
+  // Creating an extra workspace skips the "existing workspace" lookup once the session is known.
+  if (checking && !(forceNew && !session.isPending && session.data)) {
     return (
       <div className="flex justify-center py-10">
         <Spinner />

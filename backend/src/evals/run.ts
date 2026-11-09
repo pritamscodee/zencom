@@ -53,7 +53,7 @@ const settings = {
 };
 const threshold = s?.confidenceThreshold ?? 0.55;
 
-const file = arg("file") ?? path.join(import.meta.dir, "dataset.example.json");
+const file = arg("file") ?? path.join(import.meta.dirname, "dataset.example.json");
 const local: Item[] = JSON.parse(await readFile(file, "utf8"));
 
 const pushName = arg("push");

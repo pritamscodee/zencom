@@ -17,7 +17,7 @@ export class ApiError extends Error {
 type Options = Omit<RequestInit, "body"> & { body?: unknown; query?: Record<string, string | number | undefined | null> };
 
 /** Credentialed fetch to the Zencom API, scoped to the active workspace. */
-export async function api<T = any>(path: string, opts: Options = {}): Promise<T> {
+export async function api<T = unknown>(path: string, opts: Options = {}): Promise<T> {
   const url = new URL(API_URL + path);
   Object.entries(opts.query ?? {}).forEach(([k, v]) => v !== undefined && v !== null && v !== "" && url.searchParams.set(k, String(v)));
   const isForm = typeof FormData !== "undefined" && opts.body instanceof FormData;
@@ -34,6 +34,6 @@ export async function api<T = any>(path: string, opts: Options = {}): Promise<T>
   });
   if (res.status === 204) return undefined as T;
   const data = await res.json().catch(() => ({}));
-  if (!res.ok) throw new ApiError(res.status, (data as any)?.error ?? res.statusText);
+  if (!res.ok) throw new ApiError(res.status, (data as { error?: string })?.error ?? res.statusText);
   return data as T;
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import { useParams } from "next/navigation";
 import { Button, Chip, Dropdown, Label, Modal, Spinner, toast } from "@heroui/react";
 import { ArrowLeft, Bot, CheckCircle2, ExternalLink, MessagesSquare, Send } from "lucide-react";
@@ -24,9 +24,13 @@ export default function TicketPage() {
   const [busy, setBusy] = useState<string | null>(null);
 
   useRealtime<{ id: string }>("ticket:updated", useCallback((x) => x.id === id && reload(true), [id, reload]));
-  useEffect(() => {
-    if (t) setResolution(t.proposedResolution ?? "");
-  }, [t?.proposedResolution]); // eslint-disable-line react-hooks/exhaustive-deps
+  // Prefill the resolution whenever the AI's proposal changes (adjusting state during render).
+  const proposed = t ? (t.proposedResolution ?? "") : null;
+  const [prevProposed, setPrevProposed] = useState<string | null>(null);
+  if (proposed !== prevProposed) {
+    setPrevProposed(proposed);
+    if (proposed !== null) setResolution(proposed);
+  }
 
   async function update(body: Record<string, unknown>) {
     try {

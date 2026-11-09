@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { useParams } from "next/navigation";
 import { io, type Socket } from "socket.io-client";
 import { ArrowRight, ArrowUp, ChevronLeft, ChevronRight, Clock, FileText, Home, Mail, MessageSquare, Search, Sparkles, X } from "lucide-react";
@@ -86,6 +86,8 @@ function Avatar({ name, image, size = 32, ai, ring }: { name?: string; image?: s
       </span>
     );
   }
+  // Avatars are arbitrary customer-hosted URLs, so next/image (allowlisted hosts) does not fit.
+  // eslint-disable-next-line @next/next/no-img-element
   if (image) return <img src={image} alt={name ?? ""} className="shrink-0 rounded-full object-cover" style={style} />;
   return (
     <span className="flex shrink-0 items-center justify-center rounded-full font-semibold text-[#13171a]" style={{ ...style, background: "var(--wc-soft)", fontSize: size * 0.4 }}>
@@ -95,6 +97,8 @@ function Avatar({ name, image, size = 32, ai, ring }: { name?: string; image?: s
 }
 
 function BrandMark({ cfg, size = 36 }: { cfg: WidgetConfig; size?: number }) {
+  // Workspace logos are arbitrary customer-hosted URLs, so next/image (allowlisted hosts) does not fit.
+  // eslint-disable-next-line @next/next/no-img-element
   if (cfg.logo) return <img src={cfg.logo} alt={cfg.workspaceName} className="w-auto max-w-[132px] object-contain" style={{ height: size - 6 }} />;
   return (
     <span
@@ -145,8 +149,11 @@ export default function Messenger() {
   const [unread, setUnread] = useState<Record<string, number>>({});
   const [visible, setVisible] = useState(true);
   const socketRef = useRef<Socket | null>(null);
+  const [socket, setSocket] = useState<Socket | null>(null);
   const viewRef = useRef(view);
-  viewRef.current = view;
+  useLayoutEffect(() => {
+    viewRef.current = view;
+  }, [view]);
   const inFrame = typeof window !== "undefined" && window.parent !== window;
 
   useEffect(() => {
@@ -166,6 +173,7 @@ export default function Messenger() {
     const s = io(`${API_URL}/widget`, { auth: { publicKey: key, visitorId: visitorIdFor(key), pageUrl }, transports: ["websocket", "polling"] });
     socketRef.current = s;
     s.on("connect", () => {
+      setSocket(s);
       s.emit("session", {}, (r: { customer: typeof identity; conversations: ConvSummary[] }) => {
         setIdentity(r.customer);
         setConversations(r.conversations ?? []);
@@ -189,6 +197,8 @@ export default function Messenger() {
     });
     return () => {
       s.disconnect();
+      socketRef.current = null;
+      setSocket(null);
     };
   }, [cfg, key, refreshConversations]);
 
@@ -251,7 +261,7 @@ export default function Messenger() {
         ) : (
           <ChatView
             cfg={cfg}
-            socket={socketRef.current}
+            socket={socket}
             conversationId={chatId}
             summary={conversations.find((c) => c.id === chatId) ?? null}
             messages={chatId ? messages[chatId] ?? [] : []}
@@ -361,11 +371,11 @@ function HomeView({
   const [searching, setSearching] = useState(false);
   const [expanded, setExpanded] = useState<number | null>(null);
 
+  const searchActive = Boolean(cfg.helpEnabled) && q.trim().length >= 3;
+  const shownResults = searchActive ? results : null;
+
   useEffect(() => {
-    if (!cfg.helpEnabled || q.trim().length < 3) {
-      setResults(null);
-      return;
-    }
+    if (!searchActive) return;
     const t = setTimeout(async () => {
       setSearching(true);
       try {
@@ -376,7 +386,7 @@ function HomeView({
       }
     }, 350);
     return () => clearTimeout(t);
-  }, [q, cfg.helpEnabled, apiKey]);
+  }, [q, searchActive, apiKey]);
 
   const replyTime = cfg.aiEnabled ? "Instant answers, any time" : cfg.teamOnline ? "Typically replies in a few minutes" : "We'll reply as soon as we're back";
   const status = cfg.teamOnline ? "Team online" : cfg.aiEnabled ? `${cfg.aiName} is available` : "Away right now";
@@ -475,9 +485,9 @@ function HomeView({
               />
               {searching ? <span className="size-4 animate-spin rounded-full border-2 border-[#d5d9e0] border-t-[var(--wc)]" aria-label="Searching" /> : null}
             </label>
-            {results ? (
+            {shownResults ? (
               <ul className="mt-1.5 divide-y divide-[#eef0f4]">
-                {results.length === 0 ? (
+                {shownResults.length === 0 ? (
                   <li className="px-1 py-3.5 text-[13px] text-[#697077]">
                     No articles match “{q.trim()}”.{" "}
                     <button onClick={onNew} className="font-semibold underline decoration-[1.5px] underline-offset-[3px]" style={{ color: "#13171a", textDecorationColor: "var(--wc)" }}>
@@ -485,7 +495,7 @@ function HomeView({
                     </button>
                   </li>
                 ) : null}
-                {results.map((r, i) => (
+                {shownResults.map((r, i) => (
                   <li key={i}>
                     <button onClick={() => setExpanded(expanded === i ? null : i)} className="w-full rounded-xl px-1 py-3 text-left" aria-expanded={expanded === i}>
                       <div className="flex items-center gap-2.5 text-[14px] font-semibold capitalize">

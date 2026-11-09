@@ -10,7 +10,9 @@ import { api } from "@/lib/api";
 import { CONVO_STATUS_META, customerName, dateTime, PRIORITY_META, TICKET_STATUS_META, timeAgo } from "@/lib/format";
 import type { ConversationDetail } from "@/lib/types";
 
-type CrmResult = { connected: boolean; contacts: Record<string, any>[] };
+type CrmCompany = { hs_object_id?: string; name?: string; domain?: string };
+type CrmContact = { firstname?: string; lastname?: string; email?: string; jobtitle?: string; lifecyclestage?: string; companies?: CrmCompany[] };
+type CrmResult = { connected: boolean; contacts: CrmContact[] };
 
 function Section({ title, children, action }: { title: string; children: React.ReactNode; action?: React.ReactNode }) {
   return (
@@ -105,7 +107,7 @@ export function CustomerPanel({ conv, onNewTicket, className = "" }: { conv: Con
                 {contact.lifecyclestage}
               </Chip>
             ) : null}
-            {(contact.companies ?? []).map((co: any) => (
+            {(contact.companies ?? []).map((co) => (
               <div key={co.hs_object_id ?? co.name} className="flex items-center gap-1.5 text-xs text-muted">
                 <Building2 className="size-3.5" /> {co.name} {co.domain ? `· ${co.domain}` : ""}
               </div>

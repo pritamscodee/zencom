@@ -34,14 +34,19 @@ export function Sidebar({ onNavigate, className = "" }: { onNavigate?: () => voi
   }, []);
 
   useRealtime("conversation:escalated", () => setPending((p) => p + 1));
-  useEffect(() => {
+  // Clear the escalation badge when the inbox is opened (adjusting state during render).
+  const [prevPathname, setPrevPathname] = useState(pathname);
+  if (pathname !== prevPathname) {
+    setPrevPathname(pathname);
     if (pathname.startsWith("/app/inbox")) setPending(0);
-  }, [pathname]);
+  }
 
   async function switchWorkspace(id: string) {
     if (id === "__new") return router.push("/onboarding?new=1");
     await authClient.organization.setActive({ organizationId: id });
     workspaceStore.set(id);
+    // Full reload on purpose: resets every workspace-scoped client cache and socket.
+    // eslint-disable-next-line @next/next/no-location-assign-relative-destination
     window.location.href = "/app";
   }
 
@@ -60,6 +65,8 @@ export function Sidebar({ onNavigate, className = "" }: { onNavigate?: () => voi
         <Dropdown>
           <Dropdown.Trigger className="flex w-full items-center gap-2.5 rounded-lg px-2 py-2 text-left hover:bg-default/60">
             <span className="flex size-8 items-center justify-center rounded-lg bg-accent text-sm font-semibold text-accent-foreground">
+              {/* Workspace logos are arbitrary customer-hosted URLs, so next/image (allowlisted hosts) does not fit. */}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               {info.workspace.logo ? <img src={info.workspace.logo} alt="" className="size-8 rounded-lg object-cover" /> : initials(info.workspace.name)}
             </span>
             <span className="min-w-0 flex-1">

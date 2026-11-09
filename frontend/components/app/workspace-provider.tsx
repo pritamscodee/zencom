@@ -26,7 +26,7 @@ export function useWorkspace() {
 }
 
 /** Subscribe to a realtime event for the lifetime of the component. */
-export function useRealtime<T = any>(event: string, handler: (payload: T) => void) {
+export function useRealtime<T = unknown>(event: string, handler: (payload: T) => void) {
   const { socket } = useWorkspace();
   useEffect(() => {
     if (!socket) return;
@@ -44,24 +44,32 @@ export function WorkspaceProvider({ children }: { children: ReactNode }) {
   const [members, setMembers] = useState<MemberRow[]>([]);
   const [socket, setSocket] = useState<Socket | null>(null);
 
-  const refresh = useCallback(async () => {
-    try {
-      const data = await api<WorkspaceInfo>("/api/workspace");
-      workspaceStore.set(data.workspace.id);
-      setInfo(data);
-    } catch (e) {
-      if (e instanceof ApiError && e.status === 401) router.replace(`/login?next=${encodeURIComponent(pathname)}`);
-      else if (e instanceof ApiError && (e.status === 409 || e.status === 403)) {
-        workspaceStore.clear();
-        router.replace("/onboarding");
-      } else toast.danger("Could not reach the Zencom API", { description: (e as Error).message });
-    }
-  }, [router, pathname]);
+  const refresh = useCallback(
+    () =>
+      api<WorkspaceInfo>("/api/workspace").then(
+        (data) => {
+          workspaceStore.set(data.workspace.id);
+          setInfo(data);
+        },
+        (e) => {
+          if (e instanceof ApiError && e.status === 401) router.replace(`/login?next=${encodeURIComponent(pathname)}`);
+          else if (e instanceof ApiError && (e.status === 409 || e.status === 403)) {
+            workspaceStore.clear();
+            router.replace("/onboarding");
+          } else toast.danger("Could not reach the Zencom API", { description: (e as Error).message });
+        },
+      ),
+    [router, pathname],
+  );
 
-  const reloadMembers = useCallback(async () => {
-    const res = await api<{ members: MemberRow[] }>("/api/members").catch(() => null);
-    if (res) setMembers(res.members);
-  }, []);
+  const reloadMembers = useCallback(
+    () =>
+      api<{ members: MemberRow[] }>("/api/members").then(
+        (res) => setMembers(res.members),
+        () => {},
+      ),
+    [],
+  );
 
   useEffect(() => {
     refresh();
@@ -85,7 +93,7 @@ export function WorkspaceProvider({ children }: { children: ReactNode }) {
         actionProps: { children: "View", onPress: () => router.push(`/app/tickets/${p.id}`), variant: "tertiary" },
       });
     });
-    setSocket(s);
+    s.on("connect", () => setSocket(s));
     return () => {
       s.disconnect();
       setSocket(null);

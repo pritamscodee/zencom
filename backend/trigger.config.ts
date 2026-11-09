@@ -12,5 +12,8 @@ export default defineConfig({
   },
   build: {
     extensions: [prismaExtension({ mode: "modern" })],
+    // pdf-parse -> pdfjs-dist needs the native @napi-rs/canvas binary (DOMMatrix polyfill)
+    // and its pdf.worker file at runtime; bundling breaks both, so install them in the image.
+    external: ["pdf-parse", "pdfjs-dist", "@napi-rs/canvas"],
   },
 });

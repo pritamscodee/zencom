@@ -13,9 +13,9 @@ services:
     envVars:
       - key: BUN_VERSION
         value: 1.3.6
-      - key: BACKEND_URL # e.g. https://zencom-api.onrender.com (or your custom domain)
+      - key: BACKEND_URL # e.g. https://zencom.onrender.com (or your custom domain)
         sync: false
-      - key: FRONTEND_URL # e.g. https://zencom.vercel.app
+      - key: FRONTEND_URL # e.g. https://frontend-pi-six-p4ny06tzkb.vercel.app
         sync: false
       - key: DATABASE_URL
         sync: false

@@ -21,6 +21,9 @@ export const auth = betterAuth({
   session: { expiresIn: 60 * 60 * 24 * 14, updateAge: 60 * 60 * 24 },
   advanced: {
     database: { generateId: () => crypto.randomUUID() },
+    // Render sits behind Cloudflare, which overwrites these with the real client IP. X-Forwarded-For holds
+    // several hops there, so Better Auth would skip it and rate-limit everyone in one shared bucket.
+    ipAddress: { ipAddressHeaders: ["cf-connecting-ip", "true-client-ip", "x-forwarded-for"] },
     // In production the dashboard and API live on different sites (e.g. Vercel + Render),
     // so the session cookie must be sent cross-site.
     ...(env.BACKEND_URL.startsWith("https://") && {

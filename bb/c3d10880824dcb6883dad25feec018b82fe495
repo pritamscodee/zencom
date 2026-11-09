@@ -1,0 +1,31 @@
+frontend/components/app/workspace-provider.tsx
+  s_864b64b9bc4c65::t_5eccab79505dbd 9,84-95
+frontend/lib/api.ts
+  s_864b64b9bc4c65::t_5eccab79505dbd 1,21
+frontend/lib/auth-client.ts
+  s_864b64b9bc4c65::t_5eccab79505dbd 5,8
+backend/src/socket/index.ts
+  s_864b64b9bc4c65::t_54ee0561440ab5 25-32
+frontend/lib/config.ts
+  s_864b64b9bc4c65::t_edce0b37f43e12 1,3-9
+frontend/next.config.ts
+  s_864b64b9bc4c65::t_84c60219e51563 3-4,6-9
+frontend/app/app/documents/page.tsx
+  s_864b64b9bc4c65::t_5eccab79505dbd 89
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "bbc3d10880824dcb6883dad25feec018b82fe495",
+  "prompts": {},
+  "sessions": {
+    "s_864b64b9bc4c65": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "5c056632-8f3a-47d5-9bb9-264af74af7a1",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "pritamscodee <codewithpritam29@gmail.com>"
+    }
+  }
+}

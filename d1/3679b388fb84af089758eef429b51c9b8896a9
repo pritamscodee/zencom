@@ -1,0 +1,20 @@
+render.yaml
+  s_864b64b9bc4c65::t_d8f7238fbcb718 18
+  s_864b64b9bc4c65::t_1e0cdbf998d1ac 16
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "d13679b388fb84af089758eef429b51c9b8896a9",
+  "prompts": {},
+  "sessions": {
+    "s_864b64b9bc4c65": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "5c056632-8f3a-47d5-9bb9-264af74af7a1",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "pritamscodee <codewithpritam29@gmail.com>"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+backend/src/lib/auth.ts
+  s_864b64b9bc4c65::t_86bdd7068459fc 24-26
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "0e7bb9f8c07caaf14acbd7416a5077e434f50896",
+  "prompts": {},
+  "sessions": {
+    "s_864b64b9bc4c65": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "5c056632-8f3a-47d5-9bb9-264af74af7a1",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "pritamscodee <codewithpritam29@gmail.com>"
+    }
+  }
+}

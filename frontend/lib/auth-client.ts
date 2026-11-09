@@ -2,10 +2,10 @@
 
 import { createAuthClient } from "better-auth/react";
 import { organizationClient } from "better-auth/client/plugins";
-import { API_URL } from "./config";
+import { httpBase } from "./config";
 
 export const authClient = createAuthClient({
-  baseURL: API_URL,
+  baseURL: httpBase(),
   fetchOptions: { credentials: "include" },
   plugins: [organizationClient()],
 });

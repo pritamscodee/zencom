@@ -6,7 +6,6 @@ import { BookOpen, Download, FileText, MoreHorizontal, RefreshCw, Search, Trash2
 import { EmptyState, PageHeader, SetupNotice } from "@/components/app/page-header";
 import { useRealtime, useWorkspace } from "@/components/app/workspace-provider";
 import { api } from "@/lib/api";
-import { API_URL } from "@/lib/config";
 import { useFetch } from "@/lib/hooks";
 import { errorMessage, fileSize, timeAgo } from "@/lib/format";
 import type { DocumentItem } from "@/lib/types";
@@ -87,7 +86,7 @@ export default function DocumentsPage() {
         replaceInput.current?.click();
         return;
       } else if (key === "download") {
-        window.open(`${API_URL}/api/documents/${doc.id}/download`, "_blank");
+        window.open(`/api/documents/${doc.id}/download`, "_blank");
         return;
       } else if (key === "delete") {
         if (!confirm(`Delete "${doc.name}"? It will be removed from the AI's knowledge.`)) return;

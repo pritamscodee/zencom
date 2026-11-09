@@ -1,4 +1,4 @@
-import { API_URL } from "./config";
+import { httpBase } from "./config";
 
 const WS_KEY = "zencom.workspaceId";
 
@@ -18,7 +18,7 @@ type Options = Omit<RequestInit, "body"> & { body?: unknown; query?: Record<stri
 
 /** Credentialed fetch to the Zencom API, scoped to the active workspace. */
 export async function api<T = unknown>(path: string, opts: Options = {}): Promise<T> {
-  const url = new URL(API_URL + path);
+  const url = new URL(httpBase() + path);
   Object.entries(opts.query ?? {}).forEach(([k, v]) => v !== undefined && v !== null && v !== "" && url.searchParams.set(k, String(v)));
   const isForm = typeof FormData !== "undefined" && opts.body instanceof FormData;
   const ws = workspaceStore.get();

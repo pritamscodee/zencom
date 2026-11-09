@@ -22,7 +22,14 @@ export function createSocketServer(server: HttpServer) {
     try {
       const origin = socket.handshake.headers.origin;
       if (origin && origin !== env.FRONTEND_URL) return next(new Error("Origin not allowed"));
-      const session = await auth.api.getSession({ headers: fromNodeHeaders(socket.request.headers) });
+      // The dashboard's session cookie lives on the frontend's domain (API calls are proxied there), so the
+      // client passes its session token in the handshake; the cookie still works when both share a site.
+      const token = String(socket.handshake.auth?.token ?? "");
+      const session = token
+        ? await prisma.session
+            .findUnique({ where: { token }, include: { user: true } })
+            .then((s) => (s && s.expiresAt > new Date() ? s : null))
+        : await auth.api.getSession({ headers: fromNodeHeaders(socket.request.headers) });
       if (!session) return next(new Error("Unauthorized"));
       const workspaceId = String(socket.handshake.auth?.workspaceId ?? "");
       const member = await prisma.member.findFirst({ where: { userId: session.user.id, organizationId: workspaceId } });

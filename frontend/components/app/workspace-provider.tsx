@@ -6,6 +6,7 @@ import { io, type Socket } from "socket.io-client";
 import { Spinner, toast } from "@heroui/react";
 import { api, ApiError, workspaceStore } from "@/lib/api";
 import { API_URL } from "@/lib/config";
+import { authClient } from "@/lib/auth-client";
 import type { MemberRow, WorkspaceInfo } from "@/lib/types";
 
 type Ctx = {
@@ -80,7 +81,18 @@ export function WorkspaceProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (!workspaceId) return;
     reloadMembers();
-    const s = io(`${API_URL}/agent`, { withCredentials: true, auth: { workspaceId }, transports: ["websocket", "polling"] });
+    // The socket connects to the backend directly (no proxy), where the first-party session cookie isn't sent,
+    // so it authenticates with the session token instead.
+    const s = io(`${API_URL}/agent`, {
+      withCredentials: true,
+      auth: (cb) => {
+        authClient
+          .getSession()
+          .then(({ data }) => cb({ workspaceId, token: data?.session.token }))
+          .catch(() => cb({ workspaceId }));
+      },
+      transports: ["websocket", "polling"],
+    });
     s.on("conversation:escalated", (p: { conversationId: string; reason: string }) => {
       toast.warning("Conversation needs a human", {
         description: p.reason,

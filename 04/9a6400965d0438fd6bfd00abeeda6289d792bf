@@ -1,0 +1,25 @@
+backend/Dockerfile
+  s_125f319b6ff842::t_cf8e6a2de52126 1-16
+backend/.dockerignore
+  s_125f319b6ff842::t_3bf5889e4452bf 1-11
+render.yaml
+  s_125f319b6ff842::t_e146039f2af47e 1-70
+backend/src/lib/auth.ts
+  s_125f319b6ff842::t_f0ffaaa9e48f49 22-30
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "049a6400965d0438fd6bfd00abeeda6289d792bf",
+  "prompts": {},
+  "sessions": {
+    "s_125f319b6ff842": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "7ccd3491-7e4b-4266-9f6d-9e11d9a94336",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "pritamscodee <codewithpritam29@gmail.com>"
+    }
+  }
+}
